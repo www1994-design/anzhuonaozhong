@@ -31,6 +31,12 @@ jobs:
           pip install --user buildozer
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+      # ✅ 新增步骤：手动接受 Android SDK 许可（避免交互提示）
+      - name: Accept Android SDK license
+        run: |
+          mkdir -p ~/.android
+          echo "### User Accepted License ###" > ~/.android/repositories.cfg
+
       - name: Build with buildozer
         run: buildozer android debug
 

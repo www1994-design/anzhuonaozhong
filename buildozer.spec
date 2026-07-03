@@ -2,7 +2,7 @@
 title = 我的提醒
 package.name = reminderapp
 package.domain = org.kivy
-
+android.accept_sdk_license = True
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,ttf
 

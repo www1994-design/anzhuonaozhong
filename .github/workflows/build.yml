@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-android:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04   # 关键更改：使用 Ubuntu 20.04
 
     steps:
       - name: Checkout code
@@ -32,7 +32,6 @@ jobs:
           pip install --user buildozer
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      # 创建许可证文件（备用）
       - name: Accept Android SDK licenses (pre-create)
         run: |
           mkdir -p ~/.android
@@ -41,10 +40,9 @@ jobs:
           echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ~/.android/licenses/android-sdk-license
           echo "84831b9409646a918e30573bab4c9c91346d8abd" > ~/.android/licenses/android-sdk-preview-license
 
-      # 设置环境变量，并执行构建
       - name: Build with buildozer
         env:
-          BUILDOZER_ACCEPT_SDK_LICENSE: 1   # 关键环境变量
+          BUILDOZER_ACCEPT_SDK_LICENSE: 1
         run: buildozer android debug
 
       - name: Upload APK

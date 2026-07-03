@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-android:
-    runs-on: ubuntu-20.04   # 关键更改：使用 Ubuntu 20.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
             autoconf automake autoconf-archive libtool pkg-config zlib1g-dev \
             libncurses5-dev libncursesw5-dev \
             cmake libffi-dev libssl-dev \
-            libtool-bin
+            libtool-bin libltdl-dev
 
       - name: Install buildozer
         run: |

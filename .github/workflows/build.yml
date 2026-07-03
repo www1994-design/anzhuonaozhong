@@ -24,14 +24,14 @@ jobs:
             git zip unzip openjdk-17-jdk \
             autoconf libtool pkg-config zlib1g-dev \
             libncurses5-dev libncursesw5-dev \
-            cmake libffi-dev libssl-dev
+            cmake libffi-dev libssl-dev \
+            libtool-bin   # ✅ 新增这一行
 
       - name: Install buildozer
         run: |
           pip install --user buildozer
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      # ✅ 新增步骤：手动接受 Android SDK 许可（避免交互提示）
       - name: Accept Android SDK license
         run: |
           mkdir -p ~/.android

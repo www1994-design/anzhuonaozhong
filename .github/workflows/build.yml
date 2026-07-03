@@ -22,10 +22,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             git zip unzip openjdk-17-jdk \
-            autoconf libtool pkg-config zlib1g-dev \
+            autoconf automake autoconf-archive libtool pkg-config zlib1g-dev \
             libncurses5-dev libncursesw5-dev \
             cmake libffi-dev libssl-dev \
-            libtool-bin   # ✅ 新增这一行
+            libtool-bin
 
       - name: Install buildozer
         run: |
